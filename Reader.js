@@ -1,18 +1,17 @@
-const fs = require('fs');
-const util = require('util');
-
+const fs = require("fs");
+const util = require("util");
 class Reader
 {
     constructor()
     {
-        this.readText = util.promisify(fs.readFile);
+        this.read = util.promisify(fs.readFile);
     }
 
     async Reader(filepath)
     {
         try
         {
-            return await this.readText(filepath, "utf-8");
+            return await this.read(filepath, "utf-8");
         }
         catch(erro)
         {
