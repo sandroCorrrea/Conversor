@@ -1,6 +1,7 @@
 const Reader = require('./Reader');
 const Process = require('./Process');
 const Table = require('./Table');
+const HtmlParser = require('./HtmlParser');
 
 const read = new Reader();
 
@@ -12,8 +13,9 @@ async function main()
 
     var dadosTable = new Table(processo);
 
-    console.log(dadosTable.rows);
+    var html = await HtmlParser.Parser(dadosTable);
 
+    console.log(html);
 }
 
 main();
