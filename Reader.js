@@ -1,16 +1,18 @@
 const fs = require('fs');
 const util = require('util');
 
-class ReaderFile
+class Reader
 {
     constructor()
     {
-        this.readFile = util.promisify(fs.readFile)
+        this.readText = util.promisify(fs.readFile);
     }
-    async ReaderFile(filepath)
+
+    async Reader(filepath)
     {
-        try{
-            return await this.readFile(filepath, "utf-8");
+        try
+        {
+            return await this.readText(filepath, "utf-8");
         }
         catch(erro)
         {
@@ -19,4 +21,4 @@ class ReaderFile
     }
 }
 
-module.exports = ReaderFile;
+module.exports = Reader;
