@@ -1,4 +1,4 @@
-const ejs = require('ejs');
+const ejs = require("ejs");
 
 class HtmlParser
 {

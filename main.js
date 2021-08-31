@@ -2,8 +2,10 @@ const Reader = require('./Reader');
 const Process = require('./Process');
 const Table = require('./Table');
 const HtmlParser = require('./HtmlParser');
+const Write = require('./Writer');
 
 const read = new Reader();
+const write = new Write();
 
 async function main()
 {
@@ -15,7 +17,10 @@ async function main()
 
     var html = await HtmlParser.Parser(dadosTable);
 
-    console.log(html);
+    var writeHtml = await write.WriterFile(Date.now() + ".html", html);
+
+    console.log(writeHtml);
+
 }
 
 main();
